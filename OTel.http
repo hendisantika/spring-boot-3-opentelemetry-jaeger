@@ -1,0 +1,12 @@
+### Hello
+GET http://127.0.0.1:8080/hello
+
+### Path 1
+
+GET http://127.0.0.1:8080/hello/path1
+
+### Path 2
+
+GET http://127.0.0.1:8080/hello/path2
+
+
