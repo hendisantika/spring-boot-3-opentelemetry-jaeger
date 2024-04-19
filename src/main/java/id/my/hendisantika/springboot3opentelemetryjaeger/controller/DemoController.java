@@ -49,4 +49,14 @@ public class DemoController {
         doNothingButSleepForSomeTime();
         return ResponseEntity.ok("response from /path2 ");
     }
+
+    public void doNothingButSleepForSomeTime() {
+        try {
+            int sleepTime = random.nextInt(1, 2);
+            log.info("sleeping for " + sleepTime + " seconds");
+            Thread.sleep(sleepTime * 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
