@@ -34,3 +34,13 @@ GET http://127.0.0.1:8080/hello/path2
 
 
 ```
+
+### Image Screenshots
+
+![Image 1](img/otel1.png "OTel 1")
+
+![Image 1](img/otel2.png "OTel 2")
+
+![Image 1](img/otel3.png "OTel 3")
+
+![Image 1](img/otel4.png "OTel 4")
