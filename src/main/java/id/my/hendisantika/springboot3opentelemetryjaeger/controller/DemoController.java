@@ -1,5 +1,6 @@
 package id.my.hendisantika.springboot3opentelemetryjaeger.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,11 @@ import java.util.Random;
  */
 @RestController
 @Slf4j
+@RequiredArgsConstructor
 public class DemoController {
     Random random = new Random();
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
     @Value("${spring.application.name}")
     private String applicationName;
 
@@ -34,7 +36,7 @@ public class DemoController {
         return "Greetings from Spring Boot! " + LocalDateTime.now();
     }
 
-    @GetMapping("/path1")
+    @GetMapping("/hello/path1")
     public ResponseEntity<String> path1() {
         log.info("Incoming request at {} for request /path1 ", applicationName);
         doNothingButSleepForSomeTime();
@@ -43,7 +45,7 @@ public class DemoController {
         return ResponseEntity.ok("response from /path1 + " + response);
     }
 
-    @GetMapping("/path2")
+    @GetMapping("/hello/path2")
     public ResponseEntity<String> path2() {
         log.info("Incoming request at {} at /path2", applicationName);
         doNothingButSleepForSomeTime();
