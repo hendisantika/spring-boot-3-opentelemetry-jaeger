@@ -53,7 +53,7 @@ public class DemoController {
     public void doNothingButSleepForSomeTime() {
         try {
             int sleepTime = random.nextInt(1, 2);
-            log.info("sleeping for " + sleepTime + " seconds");
+            log.info("sleeping for {} seconds", sleepTime);
             Thread.sleep(sleepTime * 1000L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
