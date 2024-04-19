@@ -1,5 +1,7 @@
 package id.my.hendisantika.springboot3opentelemetryjaeger;
 
+import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -20,4 +22,8 @@ public class SpringBoot3OpentelemetryJaegerApplication {
         return builder.build();
     }
 
+    @Bean
+    public OtlpGrpcSpanExporter otlpHttpSpanExporter(@Value("${tracing.url}") String url) {
+        return OtlpGrpcSpanExporter.builder().setEndpoint(url).build();
+    }
 }
