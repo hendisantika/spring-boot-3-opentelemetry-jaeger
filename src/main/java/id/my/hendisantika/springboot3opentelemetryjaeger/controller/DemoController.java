@@ -38,8 +38,15 @@ public class DemoController {
     public ResponseEntity<String> path1() {
         log.info("Incoming request at {} for request /path1 ", applicationName);
         doNothingButSleepForSomeTime();
-        String response = restTemplate.getForObject("http://localhost:8090/hello/path2", String.class);
+        String response = restTemplate.getForObject("http://localhost:8080/hello/path2", String.class);
         doNothingButSleepForSomeTime();
         return ResponseEntity.ok("response from /path1 + " + response);
+    }
+
+    @GetMapping("/path2")
+    public ResponseEntity<String> path2() {
+        log.info("Incoming request at {} at /path2", applicationName);
+        doNothingButSleepForSomeTime();
+        return ResponseEntity.ok("response from /path2 ");
     }
 }
